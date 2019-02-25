@@ -15,51 +15,32 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Link1 return text
-Route::get('/axis/north', function () {
-    return "This is the first Assignment";
-});
 
-//Link2 return text
-Route::get('/axis/north/segun', function () {
-    return "Thank you Sir Segun";
+Route::get('/about',function () {
+    return view('about');
 });
-
-//Squareroot calculator via url
-Route::get('/axis/north/{is_integer}', function($h) {
-    return sqrt($h);
+Route::get('/blog', function () {
+    return view('blog');
 });
-
-
-//To display Arrays
-Route::get('/axis/south/array', function () {
-    return $food=["Cassave","Millet","Yam","Beans","Rice","Cocoyam"];
+Route::get('/contact', function () {
+    return view('contact');
 });
-
-//resources-view
-Route::get('/blog/home', function () {
-    return view('home');
+Route::get('/course', function () {
+    return view('course');
 });
-//my blog templates
-Route::get('/blog/index', function () {
+Route::get('/index', function () {
     return view('index');
 });
-
-Route::get('/blog/left-sidebar', function () {
-    return view('left-sidebar');
+Route::get('/single-blog', function () {
+    return view('single-blog');
 });
 
-Route::get('/blog/right-sidebar', function () {
-    return view('right-sidebar');
-});
+Auth::routes();
 
-Route::get('/blog/no-sidebar', function () {
-    return view('no-sidebar');
-});
-
-//using array@foreach
-Route::get('/class', function () {
-
-  $all=['bag','chair','book','chalk','marker'];
-    return view('class', compact('all'));
-});
+Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('create','PostController');
+// Route::get('index','PostController');
+// Route::get('edit','PostController');
+// Route::get('destroy','PostController');
+Route::resource('posts','PostController');
+// Route::get('show','PostController');
