@@ -140,12 +140,18 @@
 							<figure>
 								<img class="post-img img-fluid" src="{{asset('/img/posts/victor.jpg')}}" alt="">
 							</figure>
+							@foreach($posts as $post)
+							
+							
 							<h3>
-								<a href="blog-details">It's Hurricane Season But We Are Visiting Hilton Island</a>
+								 <a href="blog-details">{{$post->title}} </a> <!--It's Hurricane Season But We Are Visiting Hilton Island</a> -->
 							</h3>
-							<p>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-								magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+							{{$post->body}}<!-- <p>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+								magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p> -->
 							<a href="blog-details" class="primary-btn text-uppercase mt-15">continue Reading</a>
+							
+							
+							
 							<div class="post-box">
 								<div class="d-flex">  
 									<div>
@@ -195,11 +201,12 @@
 								<img class="post-img img-fluid" src="{{asset('/img/posts/p2.jpg')}}" alt="">
 							</figure>
 							<h3>
-								<a href="blog-details">Global Resorts Network Grn Putting Timeshares To Shame</a>
+								<a href="blog-details"></a>
 							</h3>
-							<p>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-								magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+							<p>   Visit our recreation centers all around the globe.</p>
 							<a href="blog-details" class="primary-btn text-uppercase mt-15">continue Reading</a>
+
+							@endforeach
 							<div class="post-box">
 								<div class="d-flex">
 									<div>
@@ -243,16 +250,14 @@
 								</div>
 							</div>
 						</div>
-
 						<div class="single-post-item">  
 							<figure>
 								<img class="post-img img-fluid" src="{{asset('/img/posts/p3.jpg')}}" alt="">
 							</figure>
 							<h3>
-								<a href="blog-details">A Guide To Rocky Mountain Vacations</a>
+								<a href="blog-details">{{$post->title}}</a>
 							</h3>
-							<p>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-								magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+							<p> {{$post->body}}</p>
 							<a href="blog-details" class="primary-btn text-uppercase mt-15">continue Reading</a>
 							<div class="post-box">
 								<div class="d-flex">

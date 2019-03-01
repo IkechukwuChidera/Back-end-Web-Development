@@ -4,9 +4,8 @@
     <h1>Edit Experience Post</h1>
     <hr>
      <form action="{{route('posts.update', [$post->id])}}" method="POST">
-     <input type="hidden" name="_method" value="PUT"> 
-       <!-- //PUT works like Poat, is an updating method -->
-     {{ csrf_field() }}
+     <input type="hidden" name="_method" value="PUT">   
+     {{ csrf_field() }}    
       <div class="form-group">
         <label for="title">Post Title</label>
         <input type="text" value="{{$post->title}}" class="form-control" id="PostTitle"  name="title" >
@@ -27,3 +26,5 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 @endsection
+
+<!-- //PUT works like Poat, is an updating method -->

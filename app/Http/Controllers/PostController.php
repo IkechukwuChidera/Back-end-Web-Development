@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use App\Post;  //to import our model
 use Illuminate\Http\Request;
 // use Illuminate\Http\Request\FormRequest; we use this when using request form method
+use Auth;
+use App\Http\Requests\PostRequest;
+
 
 
 class PostController extends Controller
@@ -55,12 +58,14 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request){
+    public function store(PostRequest $request){
 
-
-        $validateData = $request->validate ([
-            'title' => 'required|min:6', 
-             'body'=> 'required|min:10']);
+       $request->validated();
+       $post= Auth::user()->post()->create($request->except('_token'));
+       return redirect()->route('posts.index')->with('message','Experience Post created successfully.');
+        //used before----- $validateData = $request->validate ([
+        //     'title' => 'required|min:6', 
+        //      'body'=> 'required|min:10']);
 
 
     //  $post=new Post([
@@ -68,8 +73,8 @@ class PostController extends Controller
     //      'body'=>$request->body  // 
     //  ]);
     //    $post->save();
-    Post::create($request->all());
-     return redirect()->route('posts.index')->with('message','Experience Post created successfully.');
+    // used before-------Post::create($request->all());
+     
 
         //
     

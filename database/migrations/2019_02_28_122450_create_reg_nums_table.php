@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostTable extends Migration
+class CreateRegNumsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreatePostTable extends Migration
      */
     public function up()
     {
-
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('reg_nums', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->text('body');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('Registration Number');
+            $table->integer('student_id')->unsigned()->index()->nullable();
+            $table->foreign('student_id')->references('id')->on('students');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreatePostTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('reg_nums');
     }
 }

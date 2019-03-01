@@ -80,7 +80,8 @@ Route::get('/blog/home', function () {
 
 //Assignment
 Route::get('/blog/index', function () {
-    return view ('index');
+    $posts= DB::table('posts')->select('title','body')->get();
+    return view ('index',compact('posts'));
 });
 Route::get('/blog/archive', function () {
     return view ('archive');
@@ -123,8 +124,9 @@ Route::get('/axis/pp/{is_integer}', function () {
 
 
 Auth::routes();
-
+Route::get('/posts/index', 'PostController@index');
 Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::get('/test', 'TestController@test')->name('home');
             //nameofblade, nOFcontroller@method
